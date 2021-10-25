@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+h1, #questionText {
+    text-align: center;
+}
+
+button {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#getQuestion, .buttons {
+    margin: 10px 0;
+}
+
