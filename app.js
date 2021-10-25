@@ -1,12 +1,17 @@
 let getQuestion = document.getElementById('getQuestion')
 let questionText = document.getElementById('questionText')
+let answerText = document.getElementById('answerText')
+let score = document.getElementById('score')
 // Buttons
 let firstAns = document.getElementById('answer1')
 let secondAns = document.getElementById('answer2')
 let thirdAns = document.getElementById('answer3')
 let fourthAns = document.getElementById('answer4')
 
+// Randomize questions
 let random = Math.floor((Math.random() * 10) + 1)
+// Track points
+let points = 0
 
 // fetch data from opentdb
 function fetchQuestions() {
@@ -26,3 +31,10 @@ function answerQuestion(data) {
 
 // Question event listener
 getQuestion.addEventListener('click', fetchQuestions)
+
+// Answers event listener
+firstAns.addEventListener('click', () => {
+    answerText.innerHTML = "Correct!"
+    points += 1;
+    score.innerHTML = points;
+})
