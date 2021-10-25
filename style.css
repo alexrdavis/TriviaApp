@@ -6,8 +6,9 @@ body {
     font-family: sans-serif;
 }
 
-h1, #questionText {
+h1, #questionText, #answerText, #score {
     text-align: center;
+    margin-top: 10px;
 }
 
 button {
