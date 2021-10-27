@@ -1,40 +1,72 @@
 let getQuestion = document.getElementById('getQuestion')
 let questionText = document.getElementById('questionText')
-let answerText = document.getElementById('answerText')
 let score = document.getElementById('score')
 // Buttons
-let firstAns = document.getElementById('answer1')
-let secondAns = document.getElementById('answer2')
-let thirdAns = document.getElementById('answer3')
-let fourthAns = document.getElementById('answer4')
+let trueAns = document.getElementById('trueAnswer')
+let falseAns = document.getElementById('falseAnswer')
 
-// Randomize questions
-let random = Math.floor((Math.random() * 10) + 1)
-// Track points
+// Set variables
 let points = 0
+let correctAnswer
 
 // fetch data from opentdb
 function fetchQuestions() {
-    fetch('https://opentdb.com/api.php?amount=10&category=10&difficulty=easy&type=multiple')
+    fetch('https://opentdb.com/api.php?amount=1&difficulty=easy&type=boolean')
         .then(response => response.json())
-        .then(data => answerQuestion(data))
+        .then( (data) => {
+            answerQuestion(data)
+            correctAnswer = data.results[0].correct_answer
+        })
 }
 
 // function to get answers and question from fetch
 function answerQuestion(data) {
-    firstAns.innerHTML = data.results[random].correct_answer
-    secondAns.innerHTML = data.results[random].incorrect_answers[0]
-    questionText.innerHTML = data.results[random].question
-    thirdAns.innerHTML = data.results[random].incorrect_answers[1]
-    fourthAns.innerHTML = data.results[random].incorrect_answers[2]
+    questionText.innerHTML = data.results[0].question
+}
+
+// function to check if True is correct
+function checkTrueAnswer() {
+    let answered = false;
+    if(correctAnswer == "True") {
+        points += 1
+        answered = true
+        updateScore()
+    } else {
+        answered = true
+    }
+    // if answered move to next question
+    if(answered) {
+        fetchQuestions()
+    }
+}
+
+// function to check if False is correct
+function checkFalseAnswer() {
+    let answered = false;
+    if(correctAnswer == "False") {
+        points += 1
+        answered = true
+        updateScore()
+    } else {
+        answered = true
+    }
+    // if answered move to next question
+    if(answered) {
+        fetchQuestions()
+    }
+}
+
+// Function to progress score
+function updateScore() {
+    score.innerHTML = points
+    if(score === 10) {
+        alert("You win!")
+    }
 }
 
 // Question event listener
 getQuestion.addEventListener('click', fetchQuestions)
 
 // Answers event listener
-firstAns.addEventListener('click', () => {
-    answerText.innerHTML = "Correct!"
-    points += 1;
-    score.innerHTML = points;
-})
+trueAns.addEventListener("click", checkTrueAnswer)
+falseAns.addEventListener("click", checkFalseAnswer)
