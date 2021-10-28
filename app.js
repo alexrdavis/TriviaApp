@@ -8,6 +8,7 @@ let falseAns = document.getElementById('falseAnswer')
 // Set variables
 let points = 0
 let correctAnswer
+let width = 0
 
 // fetch data from opentdb
 function fetchQuestions() {
@@ -59,9 +60,18 @@ function checkFalseAnswer() {
 // Function to progress score
 function updateScore() {
     score.innerHTML = points
+    moveBar()
     if(score === 10) {
         alert("You win!")
     }
+}
+
+// Function to move progress bar based on score
+function moveBar() {
+    let scoreBar = document.getElementById("scoreBar")
+    width += 10
+    scoreBar.style.width = width + "%"
+    scoreBar.innerHTML = width + "%"
 }
 
 // Question event listener

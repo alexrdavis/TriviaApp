@@ -26,5 +26,19 @@ button {
 #getQuestion, .buttons {
     margin: 10px 0;
 }
+/* Progress Bar */
+.progressBar {
+    width: 100%;
+    background-color: lightgrey;
+    border-radius: 7px;
+}
 
+#scoreBar {
+    width: 0%;
+    height: 30px;
+    background-color: #004094;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
 /* Overlay */
