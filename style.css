@@ -4,6 +4,14 @@
 
 body {
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+}
+
+.main {
+    width: 100%;
 }
 
 h1, #questionText, #score {
@@ -27,6 +35,11 @@ button {
     margin: 10px 0;
 }
 /* Progress Bar */
+.progressUI {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .progressBar {
     width: 100%;
     background-color: lightgrey;
