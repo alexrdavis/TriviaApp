@@ -27,6 +27,11 @@ button {
     margin: 10px 0;
 }
 /* Progress Bar */
+.progressUI {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .progressBar {
     width: 100%;
     background-color: lightgrey;
