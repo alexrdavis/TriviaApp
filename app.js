@@ -4,7 +4,7 @@ let score = document.getElementById('score')
 // Overlay
 let endMessage = document.querySelector(".end-message")
 let resetButton = document.querySelector(".reset-button")
-// Buttons
+// True / False Buttons
 let trueAns = document.getElementById('trueAnswer')
 let falseAns = document.getElementById('falseAnswer')
 
@@ -79,9 +79,21 @@ function moveBar() {
     scoreBar.innerHTML = width + "%"
 }
 
+// Function to reset the game and start over after winning or losing
+function reset() {
+    document.body.classList.remove("overlay-is-open")
+    points = 0
+    score.innerHTML = points
+    width = 0
+    let elem = document.getElementById("scoreBar")
+    elem.style.width = width + "%"
+    elem.innerHTML = width + "%"
+}
+
 // Question event listener
 getQuestion.addEventListener('click', fetchQuestions)
 
 // Answers event listener
 trueAns.addEventListener("click", checkTrueAnswer)
 falseAns.addEventListener("click", checkFalseAnswer)
+resetButton.addEventListener("click", reset)
