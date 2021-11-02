@@ -1,6 +1,9 @@
 let getQuestion = document.getElementById('getQuestion')
 let questionText = document.getElementById('questionText')
 let score = document.getElementById('score')
+// Overlay
+let endMessage = document.querySelector(".end-message")
+let resetButton = document.querySelector(".reset-button")
 // Buttons
 let trueAns = document.getElementById('trueAnswer')
 let falseAns = document.getElementById('falseAnswer')
@@ -61,8 +64,10 @@ function checkFalseAnswer() {
 function updateScore() {
     score.innerHTML = points
     moveBar()
-    if(score === 10) {
-        alert("You win!")
+    if(points === 10) {
+        endMessage.textContent = "Congrats, you win!"
+        document.body.classList.add("overlay-is-open")
+        setTimeout(() => resetButton.focus(), 331)
     }
 }
 
