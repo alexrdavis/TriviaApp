@@ -1,6 +1,7 @@
 let getQuestion = document.getElementById('getQuestion')
 let questionText = document.getElementById('questionText')
 let score = document.getElementById('score')
+let attempts = document.querySelector('.attempts')
 // Overlay
 let endMessage = document.querySelector(".end-message")
 let resetButton = document.querySelector(".reset-button")
@@ -12,6 +13,7 @@ let falseAns = document.getElementById('falseAnswer')
 let points = 0
 let correctAnswer
 let width = 0
+let wrong = 3
 
 // fetch data from opentdb
 function fetchQuestions() {
@@ -37,6 +39,8 @@ function checkTrueAnswer() {
         updateScore()
     } else {
         answered = true
+        wrong -= 1
+        updateScore()
     }
     // if answered move to next question
     if(answered) {
@@ -53,6 +57,8 @@ function checkFalseAnswer() {
         updateScore()
     } else {
         answered = true
+        wrong -= 1
+        updateScore()
     }
     // if answered move to next question
     if(answered) {
@@ -63,9 +69,15 @@ function checkFalseAnswer() {
 // Function to progress score
 function updateScore() {
     score.innerHTML = points
+    attempts.textContent = "Wrong answers remaining.. " + wrong
     moveBar()
     if(points === 10) {
         endMessage.textContent = "Congrats, you win!"
+        document.body.classList.add("overlay-is-open")
+        setTimeout(() => resetButton.focus(), 331)
+    }
+    if (wrong === 0) {
+        endMessage.textContent = "You lose, try again."
         document.body.classList.add("overlay-is-open")
         setTimeout(() => resetButton.focus(), 331)
     }
@@ -84,6 +96,8 @@ function reset() {
     document.body.classList.remove("overlay-is-open")
     points = 0
     score.innerHTML = points
+    wrong = 3
+    attempts.textContent = "Wrong answers remaining.. " + wrong
     width = 0
     let elem = document.getElementById("scoreBar")
     elem.style.width = width + "%"

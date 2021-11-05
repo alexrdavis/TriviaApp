@@ -54,6 +54,10 @@ button {
     line-height: 30px;
     color: white;
 }
+
+.attempts {
+    text-align: center;
+}
 /* Overlay */
 .overlay {
     position: fixed;
@@ -90,3 +94,4 @@ body.overlay-is-open .overlay {
     display: inline-block;
     outline: none;
 }
+
