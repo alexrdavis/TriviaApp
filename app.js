@@ -15,6 +15,9 @@ let correctAnswer
 let width = 0
 let wrong = 3
 
+/// TODO
+// Remove points / score text
+
 // fetch data from opentdb
 function fetchQuestions() {
     fetch('https://opentdb.com/api.php?amount=1&difficulty=easy&type=boolean')
@@ -37,6 +40,7 @@ function checkTrueAnswer() {
         points += 1
         answered = true
         updateScore()
+        moveBar()
     } else {
         answered = true
         wrong -= 1
@@ -55,6 +59,7 @@ function checkFalseAnswer() {
         points += 1
         answered = true
         updateScore()
+        moveBar()
     } else {
         answered = true
         wrong -= 1
@@ -70,7 +75,6 @@ function checkFalseAnswer() {
 function updateScore() {
     score.innerHTML = points
     attempts.textContent = "Wrong answers remaining.. " + wrong
-    moveBar()
     if(points === 10) {
         endMessage.textContent = "Congrats, you win!"
         document.body.classList.add("overlay-is-open")
