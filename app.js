@@ -1,6 +1,5 @@
 let getQuestion = document.getElementById('getQuestion')
 let questionText = document.getElementById('questionText')
-let score = document.getElementById('score')
 let attempts = document.querySelector('.attempts')
 // Overlay
 let endMessage = document.querySelector(".end-message")
@@ -16,7 +15,8 @@ let width = 0
 let wrong = 3
 
 /// TODO
-// Remove points / score text
+// Deploy to heroku
+// Finalize look
 
 // fetch data from opentdb
 function fetchQuestions() {
@@ -73,7 +73,6 @@ function checkFalseAnswer() {
 
 // Function to progress score
 function updateScore() {
-    score.innerHTML = points
     attempts.textContent = "Wrong answers remaining.. " + wrong
     if(points === 10) {
         endMessage.textContent = "Congrats, you win!"
@@ -99,7 +98,6 @@ function moveBar() {
 function reset() {
     document.body.classList.remove("overlay-is-open")
     points = 0
-    score.innerHTML = points
     wrong = 3
     attempts.textContent = "Wrong answers remaining.. " + wrong
     width = 0
@@ -114,4 +112,5 @@ getQuestion.addEventListener('click', fetchQuestions)
 // Answers event listener
 trueAns.addEventListener("click", checkTrueAnswer)
 falseAns.addEventListener("click", checkFalseAnswer)
+// Restart game event listener
 resetButton.addEventListener("click", reset)
