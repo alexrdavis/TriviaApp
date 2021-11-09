@@ -8,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 800px;
+    font-size: 1.2rem;
 }
 
 .main {
@@ -86,8 +87,8 @@ body.overlay-is-open .overlay {
     margin-top: 0;
 }
 
-.reset-button {
-    font-size: 1.2rem;
+/* Style Buttons */
+.reset-button, #trueAnswer, #falseAnswer, #getQuestion {
     background-color: #004094;
     color: white;
     border-radius: 7px;
