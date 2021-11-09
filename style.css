@@ -9,6 +9,7 @@ body {
     align-items: center;
     height: 800px;
     font-size: 1.2rem;
+    background: #F2F2F2;
 }
 
 .main {
@@ -44,7 +45,7 @@ button {
 
 .progressBar {
     width: 100%;
-    background-color: lightgrey;
+    background-color: grey;
     border-radius: 7px;
 }
 
