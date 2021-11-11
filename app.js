@@ -14,10 +14,6 @@ let correctAnswer
 let width = 0
 let wrong = 3
 
-/// TODO
-// Deploy to heroku
-// Finalize look
-
 // fetch data from opentdb
 function fetchQuestions() {
     fetch('https://opentdb.com/api.php?amount=1&difficulty=easy&type=boolean')
