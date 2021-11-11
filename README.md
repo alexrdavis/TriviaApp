@@ -10,6 +10,8 @@ Fun trivia game that uses Open Trivia DB API.
 # Description
 Simple browser application for testing your knowledge in a set of true and false questions. Get 10 right to win!
 
-# In Progress
-* Adding an easy way to restart after game is complete.
-* Adding visuals to better indicate when an answer was wrong.
+# How to Play
+Press start to begin, answer each question as "True" or "False" and get 10 right to win. After getting 3 wrong, you will lose. 
+
+# Working Demo
+https://alexrdavis.github.io/TriviaApp/
