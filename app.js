@@ -37,10 +37,12 @@ function checkTrueAnswer() {
         answered = true
         updateScore()
         moveBar()
+        buttonAnimationCorrect()
     } else {
         answered = true
         wrong -= 1
         updateScore()
+        buttonAnimationWrong()
     }
     // if answered move to next question
     if(answered) {
@@ -56,10 +58,12 @@ function checkFalseAnswer() {
         answered = true
         updateScore()
         moveBar()
+        buttonAnimationFalseCorrect()
     } else {
         answered = true
         wrong -= 1
         updateScore()
+        buttonAnimationFalseWrong()
     }
     // if answered move to next question
     if(answered) {
@@ -100,6 +104,35 @@ function reset() {
     let elem = document.getElementById("scoreBar")
     elem.style.width = width + "%"
     elem.innerHTML = width + "%"
+}
+
+// functions to add a color change to buttons on correct answer
+function buttonAnimationCorrect() {
+    trueAns.classList.add("correctActive");
+    setTimeout(() => {
+        trueAns.classList.remove("correctActive");
+    }, 1000)
+}
+function buttonAnimationFalseCorrect() {
+    falseAns.classList.add("correctActive");
+    setTimeout(() => {
+        falseAns.classList.remove("correctActive");
+    }, 1000)
+}
+
+// functions to add a color change to buttons on wrong answer
+function buttonAnimationWrong() {
+    trueAns.classList.add("wrongActive");
+    setTimeout(() => {
+        trueAns.classList.remove("wrongActive");
+    }, 1000)
+}
+
+function buttonAnimationFalseWrong() {
+    falseAns.classList.add("wrongActive");
+    setTimeout(() => {
+        falseAns.classList.remove("wrongActive");
+    }, 1000)
 }
 
 // Question event listener
