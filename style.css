@@ -98,3 +98,34 @@ body.overlay-is-open .overlay {
     outline: none;
 }
 
+/* Animation */
+.correctActive {
+    animation: correct-animation 2s;
+}
+.wrongActive {
+    animation: wrong-animation 2s;
+}
+
+@keyframes correct-animation {
+    0% { 
+      background: #004094; 
+    }
+    50% { 
+      background: green; 
+    }
+    100% {
+      background: #004094; 
+    }
+}
+
+@keyframes wrong-animation {
+    0% { 
+      background: #004094; 
+    }
+    50% { 
+      background: red; 
+    }
+    100% {
+      background: #004094; 
+    }
+}
